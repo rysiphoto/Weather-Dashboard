@@ -39,6 +39,19 @@ margin-left: 10px;
     margin: 0; 
 }
 
+.searchResultsName {
+margin: 0px;
+width: 280px;
+height: 40px;
+font-size: 24px;
+color: black;
+background-color: white;
+z-index: auto;
+border: solid, black, 1px;
+
+
+}
+
 .cityInfo {
     background-color: white;
     margin-top: 10px;

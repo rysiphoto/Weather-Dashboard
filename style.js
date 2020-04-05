@@ -3,6 +3,9 @@
 
 //div that shows five single day forecast boxes
 
+
+// save previous searches
+
 //ajax call to openweather API
 
 $("#submit-btn").on("click", function (searchCity) {
@@ -17,8 +20,6 @@ $("#submit-btn").on("click", function (searchCity) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(queryURL);
-        console.log(response);
 
         var kFL = (response.main.feels_like - 273.15) * 1.80 + 32;
         var k = (response.main.temp - 273.15) * 1.80 + 32;
@@ -30,13 +31,22 @@ $("#submit-btn").on("click", function (searchCity) {
         var wURL2 = "@2x.png'>";
         var wCI = response.weather[0].icon;
         var wCIcon = (wURL + wCI + wURL2);
-        var topWeather = (response.name + '     (' + moment().format('l') + ')    ' + wCIcon);
+        var topWeather = (response.name + '(' + moment().format('l') + ')' + wCIcon);
         $("#cityNameBanner").empty();
         $("#cityWeather").empty();
         $("#cityNameBanner").append(topWeather);
         $("#cityWeather").append(cityTemp, cityFL, cityHum, cityWind);
 
+        $("#searchResults").html('<p> ' + response.name + '</p>')
+        // var cityHist = $("<div>").addClass(searchResultsName);
+        // $("#searchResults").prepend(cityHist).text(searchCity);
+
     });
+
+    // var searchCityHist = [];
+
+
+
 
     //search function
 
@@ -49,14 +59,14 @@ $("#submit-btn").on("click", function (searchCity) {
 
     // var searchResults
 
+
+
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (data) {
         var results = data.data;
-        console.log(data);
-        // var kFL = (data.list[0].main.feels_like - 273.15) * 1.80 + 32;
-        // var k = (data.list[0].main.temp - 273.15) * 1.80 + 32;
+
         var k1 = (data.list[7].main.temp_max - 273.15) * 1.80 + 32;
         var k2 = (data.list[15].main.temp_max - 273.15) * 1.80 + 32;
         var k3 = (data.list[23].main.temp_max - 273.15) * 1.80 + 32;
