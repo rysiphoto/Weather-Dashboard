@@ -37,9 +37,17 @@ $("#submit-btn").on("click", function (searchCity) {
         console.log(response);
         var results = response.data;
         console.log(results);
-        var cityName = $("#cityNameBanner").text(response.name);
+        var kFL = (response.main.feels_like - 273.15) * 1.80 + 32;
+        var k = (response.main.temp - 273.15) * 1.80 + 32;
 
-        $("#cityInfo").append(cityName);
+        var cityName = $('<h2>').text(response.name);
+        var cityTemp = $('<h4>').text("Temperature: " + k.toFixed(1) + " F");
+        var cityFL = $('<h4>').text("Feels Like: " + kFL.toFixed(1) + " F");
+        var cityHum = $('<h4>').text("Humidity: " + response.main.humidity + "%");
+        var cityWind = $('<h4>').text("Wind Speed: " + response.wind.speed + " mph");
+
+        $("#cityNameBanner").append(cityName);
+        $("#cityWeather").append(cityTemp, cityFL, cityHum, cityWind);
 
     });
 
