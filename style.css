@@ -1,6 +1,7 @@
 body {
     font-family: 'Gotu', sans-serif;
     background-color: rgb(230, 230, 230);
+
 }
 
 header {
@@ -20,7 +21,7 @@ font-size: 50px;
     width: 200px;
 }
 
-.seachDiv {
+.searchDiv {
 margin-top: 10px;
 justify-content: left;
 background-color: white;
@@ -34,7 +35,6 @@ margin-left: 10px;
     justify-content: left;
     background-color: white;
     width: 280px;
-
     height: 500px;
     margin: 0; 
 }
@@ -62,18 +62,34 @@ margin-left: 10px;
     justify-content: left;
     background-color: white;
     width: 800px;
-
     height: 600px;
     margin-left: 25px;
 }
 
-.container {
-     
-}
-p {
+
+
+.dayForecast {
+
+    background-color: blue;
+    height: 170px;
+    width: 120px;
+    float: left;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+    margin-top: 15px;
     margin-left: 20px;
-    margin-top: 20px;
-    font-size: 40px;;
+
 }
 
+.cityNameBanner {
+    font-size: 30px;;
+}
 
+.fiveDay {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-left: 10px;
+    
+}
