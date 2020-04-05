@@ -66,25 +66,24 @@ margin-left: 10px;
     margin-left: 25px;
 }
 
-
-
 .dayForecast {
 
     background-color: blue;
     height: 170px;
-    width: 120px;
+    width: 140px;
     float: left;
     font-size: 15px;
     color: white;
     border-radius: 5px;
-    margin: 10px;
+    margin: 5px;
     margin-top: 15px;
-    margin-left: 20px;
+    margin-left: 12px;
 
 }
 
 .cityNameBanner {
-    font-size: 30px;;
+    font-size: 30px;
+
 }
 
 .fiveDay {
@@ -92,4 +91,9 @@ margin-left: 10px;
     margin-top: 15px;
     margin-left: 10px;
     
+}
+
+img {
+    width: 50px;
+    height: 50px;
 }
