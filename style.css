@@ -41,14 +41,14 @@ margin-left: 10px;
 
 .searchResultsName {
 margin: 0px;
-width: 280px;
+width: 270px;
 height: 40px;
 font-size: 24px;
 color: black;
 background-color: white;
 z-index: auto;
 border: solid, black, 1px;
-
+padding-left: 20px;
 
 }
 

@@ -2,7 +2,7 @@
 
 
 //div that shows five single day forecast boxes
-
+var searchCityArr = [];
 
 // save previous searches
 
@@ -10,6 +10,7 @@
 
 $("#submit-btn").on("click", function (searchCity) {
     event.preventDefault();
+
     var apiKey = "acb34669f78688e5766e6da35dca440a";
     var searchCity = $("#searchCity").val().trim();
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + apiKey;
@@ -20,7 +21,7 @@ $("#submit-btn").on("click", function (searchCity) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-
+        var cityName = response.name;
         var kFL = (response.main.feels_like - 273.15) * 1.80 + 32;
         var k = (response.main.temp - 273.15) * 1.80 + 32;
         var cityTemp = $('<h6>').text("Temperature: " + k.toFixed(1) + " ºF");
@@ -37,13 +38,30 @@ $("#submit-btn").on("click", function (searchCity) {
         $("#cityNameBanner").append(topWeather);
         $("#cityWeather").append(cityTemp, cityFL, cityHum, cityWind);
 
-        $("#searchResults").html('<p> ' + response.name + '</p>')
-        // var cityHist = $("<div>").addClass(searchResultsName);
-        // $("#searchResults").prepend(cityHist).text(searchCity);
+        function renderCity() {
+            console.log("aww shit1");
+            $("searchResultsName").empty();
 
+            for (var i = 0; i < searchCityArr.length; i++) {
+                var a = $("<div>");
+                a.addClass("searchResultsName");
+                a.attr("searchCity", searchCityArr[i]);
+                a.text(searchCityArr[i]);
+                $("#searchResultsName").append(a);
+            }
+        }
+        console.log("aww shit2");
+        $("#submit-btn").on("click", function (event) {
+            event.preventDefault();
+
+            var searchResults = $("#searchCity").val().trim();
+            console.log("aww shit3");
+            searchCityArr.push($("#searchResults").html('<p><a href=https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&appid=' + apiKey + '">' + cityName + '</a></p>'));
+            console.log(searchCityArr);
+
+            renderCity();
+        });
     });
-
-    // var searchCityHist = [];
 
 
 
@@ -58,8 +76,6 @@ $("#submit-btn").on("click", function (searchCity) {
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&appid=" + apiKey;
 
     // var searchResults
-
-
 
     $.ajax({
         url: queryURL,
@@ -111,5 +127,13 @@ $("#submit-btn").on("click", function (searchCity) {
         $("#fiveDay4Date").append(moment().add(4, 'days').format('l'), cityTemp4, wIcon4, cityHum4);
         $("#fiveDay5Date").append(moment().add(5, 'days').format('l'), cityTemp5, wIcon5, cityHum5);
 
+
+
     });
+
+
+
+    // $(document).on("click", ".searchResults", searchCity);
+
+    // renderCity();
 });
