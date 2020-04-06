@@ -1,6 +1,4 @@
 //div that prepends search results
-
-
 //div that shows five single day forecast boxes
 var searchCityArr = [];
 
@@ -39,7 +37,7 @@ $("#submit-btn").on("click", function (searchCity) {
         $("#cityWeather").append(cityTemp, cityFL, cityHum, cityWind);
 
         function renderCity() {
-            console.log("aww shit1");
+
             $("searchResultsName").empty();
 
             for (var i = 0; i < searchCityArr.length; i++) {
@@ -50,13 +48,13 @@ $("#submit-btn").on("click", function (searchCity) {
                 $("#searchResultsName").append(a);
             }
         }
-        console.log("aww shit2");
+
         $("#submit-btn").on("click", function (event) {
             event.preventDefault();
 
             var searchResults = $("#searchCity").val().trim();
-            console.log("aww shit3");
-            searchCityArr.push($("#searchResults").html('<p><a href=https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&appid=' + apiKey + '">' + cityName + '</a></p>'));
+
+            searchCityArr.push($("#searchResults").html('<p><a href=https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&appid=' + apiKey + '>' + cityName + '</a></p>'));
             console.log(searchCityArr);
 
             renderCity();
@@ -130,8 +128,6 @@ $("#submit-btn").on("click", function (searchCity) {
 
 
     });
-
-
 
     // $(document).on("click", ".searchResults", searchCity);
 
